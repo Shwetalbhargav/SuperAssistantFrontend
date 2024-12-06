@@ -11,7 +11,7 @@ const Sidebar = () => {
   return (
     <>
       {/* Sidebar */}
-      <div className="bg-white w-64 h-full fixed pt-16">
+      <div className="bg-white w-64 h-full fixed" style={{ marginTop: '60px' }} >
       <div
         className={`fixed top-0 left-0 h-full bg-gray-100 p-4 space-y-4 transform ${
           isOpen ? 'translate-x-0' : '-translate-x-full'
