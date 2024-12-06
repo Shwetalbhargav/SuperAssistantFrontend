@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { IoMdAdd } from 'react-icons/io';
 import { MdClose } from 'react-icons/md';
 import { submitCategorizationForm } from '../services/api';
+import axios from 'axios';
 
 const CategorizeForm = () => {
   const [title, setTitle] = useState('Categorize the following');
@@ -53,12 +54,19 @@ const CategorizeForm = () => {
       belongsTo: categories.find((cat) => cat.id === item.categoryId)?.name || '',
     }));
 
-    const payload = { title, media, categories: formattedCategories, items: formattedItems, points };
+    const payload = {
+      title,
+      media,
+      categories: formattedCategories,
+      items: formattedItems,
+      points,
+    };
 
     console.log('Submitting payload:', payload); // Debugging the payload
 
     try {
-      const response = await submitCategorizationForm(payload);
+      // Replace submitCategorizationForm with your API call logic
+      const response = await axios.post('/categorization/submit-form', payload);
       console.log('Server response:', response.data); // Log server response for debugging
       alert('Form submitted successfully!');
     } catch (error) {
@@ -69,7 +77,6 @@ const CategorizeForm = () => {
       alert('Failed to submit form.');
     }
   };
-
   return (
     <div className="p-6 bg-gray-100 rounded-lg shadow-md max-w-4xl mx-auto">
       <h1 className="text-2xl font-bold mb-4">Categorization</h1>

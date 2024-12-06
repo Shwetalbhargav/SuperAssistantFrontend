@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+
 import './App.css';
 import React from 'react';
 import Navbar from './components/Navbar';
@@ -8,20 +8,17 @@ import CategorizeForm from './Form/CategorizeForm';
 
 const App = () => {
   return (
-   <div>
-    <Navbar/>
-    <div className="flex ">
-      
-      <Sidebar />
-     
-      <div className="flex-1 bg-gray-50 p-4 ml-64">
+
     
-        <MainContext />
-       
-       
-      </div>
+    <div>
+    <Navbar className="navbar" />
+    <div className="flex">
+        <Sidebar className="sidebar" />
+        <div className="main-content flex-1 bg-gray-50 p-4">
+            <MainContext />
+        </div>
     </div>
-    </div>
+</div>
   );
 }
 
